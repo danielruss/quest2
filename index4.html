@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+        body {
+            min-height: 100vh;
+            height: 100vh;
+            background-color: aquamarine;
+        }
+
+        .gc {
+            box-sizing: border-box;
+            height: 100%;
+            display: grid;
+            grid-template-columns: repeat(auto-fill,minmax(400px,1fr) );
+            overflow: hidden;
+        }
+
+        .gc nav,
+        .gc footer {
+            background-color: lightblue;
+        }
+        .gc .rs {
+            background-color: blue;
+            color: white;
+        }
+        .gc .ls {
+            background-color: green;
+        }
+    </style>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+</head>
+
+<body>
+    <div class="gc">
+        <nav>navbar</nav>
+        <div class="rs">g</div><div class="ls">j</div>
+        <footer>Footer: <span id="ss"></span></footer>
+    </div>
+
+
+    <script>
+        function addSizes(){
+            ss.innerText = getSize(window)
+            let all=document.querySelectorAll(".gc *")
+            all[0].innerText = `navbar ${getElementSize(all[0])}`
+            all[1].innerText = `g ${getElementSize(all[1])}`
+            all[2].innerText = `j ${getElementSize(all[1])}`
+        }
+        function getSize(ele) {
+            return `w: ${ele.innerWidth} x h: ${ele.innerHeight}`
+        }
+        function getElementSize(ele) {
+            console.log(ele)
+            return `w: ${ele.offsetWidth} x h: ${ele.offsetHeight}`
+        }
+        addSizes()
+        window.addEventListener("resize", addSizes)
+    </script>
+</body>
+
+</html>

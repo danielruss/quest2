@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <script src="quest.mjs" type="module"></script>
+        <style>
+            textarea {
+                margin: 0 10px 0 10px;
+                width: 95vw;
+                height: 25vh;
+            }
+            .output{
+                background-color: gray;
+            }
+            .metadata{
+                font-family: 'Courier New', Courier, monospace;
+                border-bottom: thin solid black;
+                padding: 5px;
+            }
+            .rendering {
+                margin: 5px 10px 0px 10px;
+                height: 60vh;
+                background-color: aliceblue;
+            }
+            .bottom {
+                display: flex;
+                justify-content: space-around;
+                align-items: center;
+            }
+            .bottom button {
+                background-color: blue;
+                color: white;
+                margin: 5px;
+            }
+        </style>
+    </head>
+    <body>
+        <textarea>
+[Q1] this is a question
+
+[Q2] this is a question
+    
+<loop>
+[LQ1] this is a question
+(1) goto to next interation of loop --> continue
+(2) exit loop --> Q5
+(3) goto lq3 --> LQ3
+(4) goto next loop question
+[LQ2!,displayif=exists("Q1")] this is another question
+[LQ3!,displayif=exists("Q1")] this is LQ3
+</loop>
+    
+[Q4] this is q4
+    
+[Q5,displayif=exists("h5")] this is q5
+    
+<loop>
+    [LQ4] this is a LQ4
+    [LQ5] this is LQ5
+</loop>
+
+[Q6] this is Q6
+[END] all done
+        </textarea>
+        <input type="button" value="go" id="go">
+
+        <div id="output" class="output"></div>
+        
+        <script type="module">
+            import { render } from './quest.mjs'
+            render({
+                url: "https://raw.githubusercontent.com/episphere/questionnaire/main/module1Stage.txt"
+            },"output")
+            
+            /*
+            import {split_module,render_question} from './t2.js'
+            let output=document.querySelector(".output")
+            console.log(output)
+            document.getElementById("go").addEventListener("click",(event) => {
+                let questions = split_module(document.querySelector("textarea").value)
+                render_question( questions[0],output)
+            })
+
+            document.getElementById("go").click()
+            */
+        </script>
+    </body>
+</html>

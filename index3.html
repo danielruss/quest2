@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            body {
+                height: 99vh;
+                background-color: azure;
+                border: thick black solid;
+                box-sizing:border-box;
+                overflow: hidden;
+            }
+            .fc {
+                display: flex;
+                min-height: 100%;
+                flex-direction: column;
+            }
+            .fc > .vfill {
+                flex: 1;
+                background-color: aliceblue;
+                border: thick solid yellow;
+            }
+            .fc > .myrow {
+                display: flex;
+                justify-content: space-between;
+            }
+            .myrow .cell {
+                padding: 5px;
+                border: thin black solid;
+                font-family: Arial, Helvetica, sans-serif;
+            }
+            nav {
+                border: 1px black solid;
+                padding: 2px;
+            }
+            textarea{
+                height: 400px;
+                width: 100%;
+                resize: none;
+                box-sizing:border-box;
+            }
+            footer {
+                font-family: 'Courier New', Courier, monospace;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="fc">
+            <nav>my nav bar</nav>
+            <div class="myrow">
+                <div class="cell">hi there</div>
+                <div class="cell">I am a cell!!</div>
+                <div class="cell">I am here!!!</div>
+            </div>
+            <div class="vfill"> <textarea ></textarea></div>
+            <div class="vfill">cat</div>
+            <footer>Status: Ready</footer>
+        </div>
+    </body>
+</html>
